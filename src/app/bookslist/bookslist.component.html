@@ -1,0 +1,33 @@
+<div>
+    <h3>
+    Authors
+    </h3>
+    <input
+        type="text"
+        style="padding:8px;margin:15px auto;width:30%;"
+        placeholder="Type to filter the name column..."
+        (keyup)="updateFilter($event)"
+      />
+    <ngx-datatable
+    #table
+      class="bootstrap"
+      [rows]="rows"
+      [loadingIndicator]="loadingIndicator"
+      [columnMode]="ColumnMode.force"
+      [columns]="columns"      
+      [headerHeight]="50"
+      [footerHeight]="50"
+      rowHeight="auto"
+      (activate)="onActivate($event)"
+      [reorderable]="reorderable"
+    >
+    <ngx-datatable-column name="bookId" hidden ></ngx-datatable-column>
+    <ngx-datatable-column name="title" ></ngx-datatable-column>
+    <ngx-datatable-column name="type"></ngx-datatable-column>
+    <ngx-datatable-column name="price"></ngx-datatable-column>
+    <ngx-datatable-column name="publishedDate"></ngx-datatable-column>
+    <ngx-datatable-column name="publisherName" prop="pub.publisherName"></ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+
+

@@ -1,0 +1,27 @@
+<div>
+    <h3>
+    Authors
+    </h3>
+    <input
+        type="text"
+        style="padding:8px;margin:15px auto;width:30%;"
+        placeholder="Type to filter the name column..."
+        (keyup)="updateFilter($event)"
+      />
+    <ngx-datatable
+    #table
+      class="material"
+      [rows]="rows"
+      [loadingIndicator]="loadingIndicator"
+      [columns]="columns"      
+      [headerHeight]="50"
+      [footerHeight]="50"
+      rowHeight="auto"
+      [reorderable]="reorderable"
+    >
+    <ngx-datatable-column name="lastName" [width]="300"></ngx-datatable-column>
+    <ngx-datatable-column name="firstName" [width]="300"></ngx-datatable-column>
+    <ngx-datatable-column name="address"></ngx-datatable-column>
+
+    </ngx-datatable>
+  </div>
