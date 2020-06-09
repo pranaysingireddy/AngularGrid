@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule, routingComponets } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AuthorlistComponent } from './authorlist/authorlist.component';
@@ -17,9 +21,19 @@ import { AuthService } from './auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { AddbookComponent } from './addbook/addbook.component';
+import { PublisherComponent } from './publisher/publisher.component';
+import { PublisherService } from './publisher.service';
 
 @NgModule({
-	declarations: [ AppComponent, routingComponets, BookdetailsComponent, LoginComponent ],
+	declarations: [
+		AppComponent,
+		routingComponets,
+		BookdetailsComponent,
+		LoginComponent,
+		AddbookComponent,
+		PublisherComponent
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -27,12 +41,15 @@ import { TokenInterceptorService } from './token-interceptor.service';
 		NgxDatatableModule,
 		ReactiveFormsModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		ToastrModule.forRoot(),
+		BrowserAnimationsModule
 	],
 	providers: [
 		AuthorService,
 		BookService,
 		AuthService,
+		PublisherService,
 		AuthGuard,
 		{
 			provide: HTTP_INTERCEPTORS,

@@ -9,7 +9,7 @@ import { throwError as observableThrowError, Observable } from 'rxjs';
 	providedIn: 'root'
 })
 export class AuthorService {
-	private url = 'http://localhost:61063/api/Author';
+	private url = 'http://localhost:61063/api/Authors';
 	constructor(private http: HttpClient) {}
 
 	getAuthors(): Observable<IAuthor[]> {

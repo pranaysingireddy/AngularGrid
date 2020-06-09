@@ -1,1 +1,64 @@
-<p>bookdetails works!</p>
+<div class="continer-fluid">
+  <h2>
+    Book Details
+  </h2>
+  <form>
+    <div class="form-group">
+      <input type="text" class="form-control" name="bookId" [(ngModel)]="book.bookId" hidden>
+    </div>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <div class="input-group">
+        <input type="text" id="title" class="form-control" name="title" [(ngModel)]="formData.title"
+          [readonly]="!isEdit">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="title">Notes:</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="notes" name="notes" [(ngModel)]="formData.notes"
+          [readonly]="!isEdit">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Price</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">$</div>
+          </div>
+          <input name="price" #price="ngModel" [(ngModel)]="formData.price" class="form-control" [readonly]="!isEdit">
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Royality</label>
+        <input name="royalty" #royalty="ngModel" [(ngModel)]="formData.royalty" class="form-control"
+          [readonly]="!isEdit">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Publisher</label>
+        <div class="input-group">
+          <select class="custom-select form-control" #pubId="ngModel" name="publisher" [(ngModel)]="formData.pubId"
+            [disabled]="!isEdit">
+            <option value="0">Select Publisher</option>
+            <option *ngFor="let publisher of this.publishers" [value]="publisher.pubId">{{publisher.publisherName}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Published Date</label>
+        <input name="royalty" #royalty="ngModel" [(ngModel)]="formData.royalty" class="form-control"
+          [readonly]="!isEdit">
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="isEdit" (click)="editBook()"><i
+          class="fa fa-edit"></i>Edit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!isEdit" (click)="saveBook()" >Submit</button>
+    </div>
+  </form>
+</div>

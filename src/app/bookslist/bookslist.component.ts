@@ -60,7 +60,7 @@ export class BookslistComponent implements OnInit {
 	onActivate(event) {
 		if (event.type == 'click') {
 			console.log(event.row.bookId);
-			this._router.navigate([ '/books', event.row.bookId ]);
+			this._router.navigate([ '/books/view', event.row.bookId ]);
 		}
 	}
 }
